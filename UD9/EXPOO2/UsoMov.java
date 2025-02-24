@@ -1,6 +1,8 @@
+
+
 public class UsoMov{
     public static void main(String[] args) {
-        SIM t1 = new TarjetaSIM("678112233");
+        TarjetaSIM t1 = new TarjetaSIM("678112233");
         TarjetaSIM t2 = new TarjetaSIM("644744469");
         TarjetaSIM t3 = new TarjetaSIM("622328909");
         TarjetaSIM t4 = new TarjetaSIM("664739818");
