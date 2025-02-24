@@ -22,8 +22,8 @@ public class TarjetaSIM {
 
 
     public void llama(TarjetaSIM sim,int secsCall){
-        setSec((getSec() + secsCall));
-        sim.setSec(sim.getSec() + secsCall);
+        this.sec+= secsCall;
+        sim.sec+= secsCall;
     }
     
     public String toString(){
