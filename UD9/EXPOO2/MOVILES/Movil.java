@@ -1,3 +1,4 @@
+package MOVILES;
 
 public class Movil extends TarjetaSIM {
 
@@ -18,24 +19,22 @@ public class Movil extends TarjetaSIM {
 
     @Override
     public void llama (TarjetaSIM sim , int secsCall){
-        double rate=0.0;
-        if (getTarif().equalsIgnoreCase("plata")){
-            rate=0.10;
-        } else if (getTarif().equalsIgnoreCase("oro")) {
-            rate=0.06;
-        } else if (getTarif().equalsIgnoreCase("platinum")){
-            rate= 0.03;
-        }
-        double costOfCall =(secsCall/60.0) *rate;
-         
-        this.cost+= costOfCall;
+        double rate = switch (tarif.toLowerCase()) {
+            case "plata" -> 0.10;
+            case "oro" -> 0.06;
+            case "platinum" -> 0.03;
+            default -> 0.00;  // Default case (if the tarif is unknown)
+        };
         super.llama(sim, secsCall);
+        double costOfCall =(secsCall/60.0) *rate;
+        this.cost+= costOfCall;
+        
     }
 
     
     @Override
     public String toString(){
-        return super.toString() + " - " +  String.format("%.3f", cost) + " euros de gasto";
+        return super.toString() + " - " +  String.format("%.3f", cost) + " euros de gasto" + tarif;
     }
 
 }
