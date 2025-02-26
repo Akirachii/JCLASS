@@ -1,6 +1,6 @@
-package FIGURAS;
-import java.util.Vector;
 
+
+import java.util.Vector;
 public class CreaFiguras {
     public static void main(String[] args) {
         Vector<Figura> figuras = new Vector<Figura>();

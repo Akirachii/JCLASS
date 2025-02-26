@@ -1,6 +1,4 @@
-package FIGURAS;
-
-public abstract class Figura {
-    public abstract double area();
-    public abstract double perimtr();
+abstract class Figura {
+    abstract double area();
+    abstract double perimetro();
 }
