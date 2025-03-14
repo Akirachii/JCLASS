@@ -27,26 +27,7 @@ public class Jugador {
 
     public List<Carta> getMano() {return mano;}
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        
-        // Encabezado de la tabla
-        sb.append("+----+--------+--------+\n");
-        sb.append("| #  | Valor  | Palo   |\n");
-        sb.append("+----+--------+--------+\n");
-
-        // Contenido de la tabla
-        for (int i = 0; i < mano.size(); i++) {
-            Carta c = mano.get(i);
-            sb.append(String.format("| %-2d | %-6d | %-6s |\n", i + 1, c.getValor(), c.getPalo()));
-        }
-
-        // Línea final de la tabla
-        sb.append("+----+--------+--------+\n");
-
-        return sb.toString();
-    }
+    
 
 
 

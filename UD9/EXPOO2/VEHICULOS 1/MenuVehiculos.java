@@ -47,6 +47,9 @@ public class MenuVehiculos {
                     System.out.println("Mostrando vehículos totales.");
                     Vehiculo.getVehiculosCreados();
                     break;
+                case 8:
+                    // agregar un coshe nuevoo
+                    break;    
                 case 7:
                     System.out.println("Saliendo del programa.");
                     break;

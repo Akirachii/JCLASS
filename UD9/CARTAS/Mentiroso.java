@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 //Pau Gra
+// no se como lo he hecho 
 
 public class Mentiroso {
     private Jugador p1;
@@ -39,36 +40,39 @@ public class Mentiroso {
 
         while (!p1.getMano().isEmpty() && !p2.getMano().isEmpty()){
             System.out.println("turno de " + actual.getNombre());
-            System.out.println("Tu mano: " + actual.getMano());
-            System.out.println("Declara cartas de valor: " + valoractual);
+            mostrarMano(actual);
+            System.out.print("¿Qué valor de carta vas a jugar? ");
+            int valorDeclarado = scanner.nextInt();
+            scanner.nextLine(); // Consumir el salto de línea
+
 
             System.out.println("Cuantas cartas vas a jugar? ");
             int cantidad = scanner.nextInt();
-            scanner.next();
 
             List<Carta> cartasJugadas = new ArrayList<>();
-            for (int i = 0; i < cantidad; i++) {
+            for (int i = 1; i <= cantidad; i++) {
                 System.out.print("Elige el índice de la carta a jugar: ");
                 int indice = scanner.nextInt();
-                scanner.nextLine(); // Limpiar buffer
+                scanner.nextLine(); //limpiar
                 if (indice >= 0 && indice < actual.getMano().size()) {
                     cartasJugadas.add(actual.jugalCalta(indice));
-                } else {
+                } else { 
                     System.out.println("Índice inválido. Intenta de nuevo.");
                     i--; // Repetir la selección
                 }
             }
 
             pila.addAll(cartasJugadas);
-
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
             System.out.print(rival.getNombre() + " Es falso?? (si/no): ");
             String answ = scanner.nextLine().toLowerCase();
-            scanner.next();
+            
 
             if (answ.equals("si")){
                 boolean mentira = false;
                 for (Carta c : cartasJugadas){
-                    if (c.getValor() != valoractual){
+                    if (c.getValor() != valorDeclarado){
                         mentira = true;
                         break;
                     }
@@ -94,6 +98,22 @@ public class Mentiroso {
             valoractual = (valoractual % 12)+1;
         }
     }
+
+
+    private void mostrarMano(Jugador jugador) {
+        System.out.println("Tu mano:");
+        System.out.println("+----+--------+");
+        System.out.println("| #  | Carta  |");
+        System.out.println("+----+--------+");
+        
+        List<Carta> mano = jugador.getMano();
+        for (int i = 0; i < mano.size(); i++) {
+            System.out.printf("| %-2d | %-6s |\n", i + 1, mano.get(i));
+        }
+        
+        System.out.println("+----+--------+");
+    }
+
 
 
 

@@ -1,4 +1,5 @@
 // Pau Gra
+// Clase Baraja, para determinar las cartas, hacer mazos
 
 import java.util.ArrayList;
 import java.util.Collections;

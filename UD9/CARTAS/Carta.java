@@ -1,5 +1,5 @@
 // Pau Gra
-
+// Clase Carta, determina el tipo de carta y su valor
 
 public class Carta {
     private String palo;
