@@ -50,7 +50,7 @@ public class Mentiroso {
             int cantidad = scanner.nextInt();
 
             List<Carta> cartasJugadas = new ArrayList<>();
-            for (int i = 1; i <= cantidad; i++) {
+            for (int i = 0; i <= cantidad; i++) {
                 System.out.print("Elige el índice de la carta a jugar: ");
                 int indice = scanner.nextInt();
                 scanner.nextLine(); //limpiar
@@ -102,16 +102,16 @@ public class Mentiroso {
 
     private void mostrarMano(Jugador jugador) {
         System.out.println("Tu mano:");
-        System.out.println("+----+--------+");
-        System.out.println("| #  | Carta  |");
-        System.out.println("+----+--------+");
+        System.out.println("+---------------+");
+        System.out.println("| Carta | Valor |");
+        System.out.println("+---------------+");
         
         List<Carta> mano = jugador.getMano();
         for (int i = 0; i < mano.size(); i++) {
-            System.out.printf("| %-2d | %-6s |\n", i + 1, mano.get(i));
+            System.out.printf("| %-5d | %-5s |\n", i , mano.get(i).getValor());
         }
         
-        System.out.println("+----+--------+");
+        System.out.println("+---------------+");
     }
 
 
