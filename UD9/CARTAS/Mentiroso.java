@@ -50,13 +50,14 @@ public class Mentiroso {
             int cantidad = scanner.nextInt();
 
             List<Carta> cartasJugadas = new ArrayList<>();
-            for (int i = 0; i <= cantidad; i++) {
+            for (int i = 0; i < cantidad; i++) {
+                mostrarMano(actual);
                 System.out.print("Elige el índice de la carta a jugar: ");
                 int indice = scanner.nextInt();
                 scanner.nextLine(); //limpiar
                 if (indice >= 0 && indice < actual.getMano().size()) {
                     cartasJugadas.add(actual.jugalCalta(indice));
-                } else { 
+                } else {
                     System.out.println("Índice inválido. Intenta de nuevo.");
                     i--; // Repetir la selección
                 }
@@ -79,10 +80,10 @@ public class Mentiroso {
                 }
 
                 if (mentira){
-                    System.out.println(actual.getNombre() + " Ha mentido! Aqui tienes las cartas de la pila: ");
+                    System.out.println(actual.getNombre() + " Ha mentido! Se queda con las cartas de la pila ");
                     actual.getMano().addAll(pila);
                 } else {
-                    System.out.println(rival.getNombre() + " se ha equivocado! Aqui tienes las cartas de la pila: ");
+                    System.out.println(rival.getNombre() + " se ha equivocado! Se queda con las cartas de la pila ");
                     rival.getMano().addAll(pila);
                 }
                 pila.clear();
